@@ -1,12 +1,8 @@
 import { defineAsyncComponent, markRaw, reactive } from "vue";
-// import content from "./components/Day-1/readme.md?raw";
-// console.log(content);
 
 type VueProjectModule = typeof import("*.vue");
-// type MarkdownModule = typeof import("*.md");
 
 type ImportVueModuleFunction = () => Promise<VueProjectModule>;
-// type ImportMdModuleFunction = () => Promise<MarkdownModule>;
 
 interface IData {
   [key: string]: {
@@ -22,7 +18,6 @@ export const allProjects = reactive<{
 
 const resolveImportGlobModule = async (
   projectModules: Record<string, ImportVueModuleFunction>
-  // markdownModules: Record<string, ImportMdModuleFunction>
 ) => {
   const data: IData = {};
   // 假设每一个文件下都会有一个 vue 文件和 md 文件

@@ -14,12 +14,8 @@
   },
   "devDependencies": {
     "@iconify/vue": "^3.2.1",
-    "@types/marked": "^4.0.7",
     "@types/node": "^18.7.15",
     "@vitejs/plugin-vue": "^3.1.0",
-    "@yankeeinlondon/code-builder": "^1.0.7",
-    "markdown-it-anchor": "^8.6.4",
-    "markdown-it-prism": "^2.3.0",
     "markdown-it-shiki": "^0.5.1",
     "typescript": "^4.6.4",
     "vite": "^3.1.0",

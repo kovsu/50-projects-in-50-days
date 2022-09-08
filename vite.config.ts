@@ -11,16 +11,11 @@ export default defineConfig({
       include: [/\.vue$/, /\.md$/],
     }),
     Markdown({
-      markdownItOptions: {
-        quotes: "\"\"''",
-      },
       markdownItSetup(md) {
         md.use(Shiki, {
           theme: "vitesse-dark",
         });
       },
-      // Class names for the wrapper div
-      wrapperClasses: "markdown-body",
     }),
   ],
   resolve: {
