@@ -6,7 +6,7 @@ import { allProjects } from "./composable/data";
 
 const route = useRoute();
 const description = ref("");
-const prefix = "./components/" + route.params.name;
+const prefix = "/components/" + route.params.name;
 const showDes = ref(false);
 
 onMounted(() => {
