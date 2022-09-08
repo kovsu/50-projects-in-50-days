@@ -1,9 +1,14 @@
 <script setup lang="ts">
-import ExpandingCards from "./components/Day-1/ExpandingCards.vue";
+import { onMounted } from "vue";
+import { loadProjects } from "./composable/data";
+
+onMounted(() => {
+  loadProjects();
+});
 </script>
 
 <template>
-  <ExpandingCards></ExpandingCards>
+  <router-view></router-view>
 </template>
 
 <style scoped></style>
