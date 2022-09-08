@@ -7,6 +7,7 @@ declare module "*.vue" {
 }
 
 declare module "*.md" {
-  const content: string;
-  export default content;
+  import type { ComponentOptions } from "vue";
+  const Component: ComponentOptions;
+  export default Component;
 }

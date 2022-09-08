@@ -1,32 +1,14 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from "vue";
+import { defineAsyncComponent, ref } from "vue";
 import { useRoute } from "vue-router";
-import { mark } from "~/composable/marked";
 import { allProjects } from "./composable/data";
 
 const route = useRoute();
-const description = ref("");
-const prefix = "../src/components/" + route.params.name;
 const showDes = ref(false);
 
-onMounted(() => {
-  // loadProjects();
-  // console.log(allProjects.value);
-
-  import(/* @vite-ignore */ prefix + "/readme.md?raw")
-    .then((content) => {
-      // console.log(content.default);
-      description.value = content.default;
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-let compiledMarkdown = computed(() => {
-  const tokens = mark.lexer(description.value);
-  return mark.parser(tokens);
-});
+const ReadmeMd = defineAsyncComponent(
+  () => import(`./components/${route.params.name}/readme.md`)
+);
 </script>
 
 <template>
@@ -36,13 +18,8 @@ let compiledMarkdown = computed(() => {
       <Icon icon="ep:close" v-if="showDes" />
       <Icon icon="fluent-emoji-high-contrast:label" v-else />
     </button>
-    <div
-      class="des"
-      id="marked"
-      v-html="compiledMarkdown"
-      v-show="showDes"
-    ></div>
 
+    <ReadmeMd class="des prose" v-show="showDes"></ReadmeMd>
     <component
       :is="allProjects.value[route.params.name as string].file"
     ></component>
