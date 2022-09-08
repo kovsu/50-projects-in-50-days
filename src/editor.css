@@ -1,0 +1,222 @@
+code {
+  padding: 3px 5px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0 0.5rem;
+}
+
+code::before {
+  content: open-quote;
+}
+
+code::after {
+  content: close-quote;
+}
+
+#marked pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 2rem;
+  font-size: 16px;
+  border-radius: 5px;
+  font-family: monospace;
+  font-weight: normal;
+}
+
+#marked pre code:first-of-type::before {
+  content: none;
+}
+
+#marked pre code:last-of-type::after {
+  content: none;
+}
+
+.hljs {
+  color: #fff;
+  background: #1c1b1b;
+}
+
+.hljs-subst {
+  color: #fff;
+}
+
+.hljs-comment {
+  color: #999;
+}
+
+.hljs-attr,
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta .hljs-keyword,
+.hljs-section,
+.hljs-selector-tag {
+  color: #4d9375;
+}
+
+.hljs-attribute {
+  color: #c59bc1;
+}
+
+.hljs-name,
+.hljs-number,
+.hljs-quote,
+.hljs-selector-id,
+.hljs-template-tag,
+.hljs-type {
+  color: #6394bf;
+}
+
+.hljs-selector-class {
+  color: #88aece;
+}
+
+.hljs-link,
+.hljs-regexp,
+.hljs-selector-attr,
+.hljs-string,
+.hljs-symbol,
+.hljs-template-variable,
+.hljs-variable {
+  color: #c98a7d;
+}
+
+.hljs-meta,
+.hljs-selector-pseudo {
+  color: #88aece;
+}
+
+.hljs-built_in,
+.hljs-literal,
+.hljs-title {
+  color: #a1b567;
+}
+
+.hljs-bullet,
+.hljs-code {
+  color: #ccc;
+}
+
+.hljs-meta .hljs-string {
+  color: #b5bd68;
+}
+
+.hljs-deletion {
+  color: #de7176;
+}
+
+.hljs-addition {
+  color: #76c490;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: 700;
+}
+
+#marked {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+#marked * {
+  margin: 0.8rem 0;
+  padding: 0.5rem 0;
+}
+
+#marked ul {
+  list-style: initial;
+}
+
+#marked img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+#marked a {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  padding: 0 0 0.2rem 0;
+}
+
+#marked a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: rgba(128, 128, 128, 0.5);
+  transition: all 0.5s;
+}
+
+#marked a:hover::after {
+  background-color: #000;
+}
+
+#marked.active a:hover::after {
+  background-color: #fff;
+}
+
+#marked ul {
+  padding: 16px;
+}
+
+#marked li {
+  padding: 0;
+  margin: 0 0 0.5rem 0;
+}
+
+#marked h2 {
+  position: relative;
+}
+
+#marked h2:hover a {
+  opacity: 1;
+}
+
+#marked h2 a {
+  position: absolute;
+  top: 50%;
+  left: -25px;
+  transform: translateY(-50%);
+
+  padding: 0;
+  margin: 0;
+  font-size: 24px;
+  opacity: 0;
+  color: rgba(128, 128, 128, 0.3);
+  transition: all 0.3s;
+}
+
+#marked h2 a::after {
+  background-color: transparent !important;
+}
+
+#marked h2 a:hover::after {
+  background-color: transparent;
+}
+
+#marked blockquote > :first-child {
+  margin-top: 0;
+}
+
+#marked blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+#marked blockquote {
+  font-weight: 500;
+  color: inherit;
+  border-left: 0.25rem solid;
+  border-color: rgba(125, 125, 125, 0.3);
+  margin-top: 1.6em;
+  margin-bottom: 1.6em;
+  padding-left: 1em;
+  opacity: 0.8;
+}

@@ -43,11 +43,11 @@ h1 {
 
   font-size: 1.6rem;
   color: #9ca3af;
+  transition: all 0.5s;
 }
 
 .project li a:hover {
   color: #393939;
-  transition: all 0.5s;
 }
 
 .project li span {

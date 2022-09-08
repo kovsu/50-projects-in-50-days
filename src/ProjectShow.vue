@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-
+import { mark } from "~/composable/marked";
 import { allProjects } from "./composable/data";
 
 const route = useRoute();
@@ -22,16 +22,27 @@ onMounted(() => {
       console.log(err);
     });
 });
+
+let compiledMarkdown = computed(() => {
+  const tokens = mark.lexer(description.value);
+  return mark.parser(tokens);
+});
 </script>
 
 <template>
   <div class="project-show">
     <router-link to="/" class="back">back</router-link>
-    <button class="note-btn" @click="showDes = true">note</button>
-    <p class="des" v-show="showDes">
-      <button class="close-btn" @click="showDes = false">close</button>
-      {{ description }}
-    </p>
+    <button class="note-btn" @click="showDes = !showDes">
+      <Icon icon="ep:close" v-if="showDes" />
+      <Icon icon="fluent-emoji-high-contrast:label" v-else />
+    </button>
+    <div
+      class="des"
+      id="marked"
+      v-html="compiledMarkdown"
+      v-show="showDes"
+    ></div>
+
     <component
       :is="allProjects.value[route.params.name as string].file"
     ></component>
@@ -62,7 +73,7 @@ onMounted(() => {
 
 .des {
   width: 50rem;
-  height: 30rem;
+  height: 60rem;
   position: absolute;
   z-index: 1;
   background-color: #fff;
@@ -73,10 +84,8 @@ onMounted(() => {
   overflow-y: scroll;
 }
 
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+button {
+  font-family: "Lato", sans-serif;
 }
 
 .note-btn {
@@ -86,5 +95,15 @@ onMounted(() => {
   font-size: 1.6rem;
   padding: 1rem 1.5rem;
   cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  transition: all 0.5s;
+
+  font-size: 2.4rem;
+}
+
+.note-btn:hover {
+  color: #393939;
 }
 </style>
