@@ -29,8 +29,11 @@ h1 {
   width: 50rem;
   height: 50rem;
   list-style: none;
+
   display: grid;
+
   grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: min-content;
 }
 
 .project li {
