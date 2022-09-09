@@ -115,7 +115,7 @@ const active = ref(false);
   z-index: 1;
 
   width: 100%;
-  height: 50rem;
+  max-height: 50rem;
 
   background-color: #fff;
   overflow-x: hidden;
@@ -131,7 +131,7 @@ const active = ref(false);
 }
 
 .article.active {
-  height: auto;
+  max-height: 10000px;
   transform: rotateZ(-25deg);
 }
 
@@ -198,7 +198,7 @@ const active = ref(false);
 }
 
 .nav.active .item:nth-child(2) {
-  opacity: 1; 
+  opacity: 1;
   transform: translateX(1.5rem);
 }
 
