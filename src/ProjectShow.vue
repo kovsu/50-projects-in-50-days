@@ -27,9 +27,13 @@ const ReadmeMd = defineAsyncComponent(
     </header>
 
     <ReadmeMd class="des prose" v-show="showDes"></ReadmeMd>
-    <component
-      :is="allProjects.value[route.params.name as string].file"
-    ></component>
+    <div class="container">
+      <Transition name="fade" mode="out-in">
+        <component
+          :is="allProjects.value[route.params.name as string].file"
+        ></component>
+      </Transition>
+    </div>
   </div>
 </template>
 
@@ -105,5 +109,20 @@ button {
 
 .soure:hover {
   color: #393939;
+}
+
+.container {
+  width: 80rem;
+  height: 50rem;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
