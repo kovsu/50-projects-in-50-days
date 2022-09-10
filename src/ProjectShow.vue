@@ -71,7 +71,7 @@ header {
   width: 50rem;
   height: 60rem;
   position: absolute;
-  z-index: 1;
+  z-index: 10000;
   background-color: #fff;
   padding: 3rem;
   border-radius: 1rem;
