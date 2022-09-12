@@ -85,6 +85,8 @@ button {
 }
 
 .note-btn {
+  position: relative;
+  z-index: 20000;
   font-size: 1.6rem;
   padding: 1rem 1.5rem;
   cursor: pointer;
@@ -112,6 +114,7 @@ button {
 }
 
 .container {
+  position: relative;
   width: 80rem;
   height: 50rem;
 }
